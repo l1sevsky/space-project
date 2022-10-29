@@ -1,5 +1,4 @@
 // colors
-
 $bg-main: #FAFAFA;
 $bg-light: #FFFFFF;
 $dark-main: #333333;
@@ -8,11 +7,19 @@ $light-main: #E6E6E6;
 $light-2: #C7C4CE;
 $highlight: #DF6868;
 
+// shadows
+$shadow-header: 0 2px 20px rgba(#CCCCCC, 0.2);
 
+// sizes
+$max-page-content-width: 1100px;
 
 // fonts
-
 $h2: 600 16px/20px Montserrat, sans-serif;
 $h3: 700 14px/16px Roboto, sans-serif;
 $p: 500 12px/15px Montserrat, sans-serif;
 $attribute: 600 12px/15px Montserrat, sans-serif;
+$photo-hover-text-day: 800 10vw/10vw Montserrat, sans-serif;
+$photo-hover-text-month: 400 2vw/2vw Roboto, sans-serif;
+
+// dev vars
+$plug-color: gold;

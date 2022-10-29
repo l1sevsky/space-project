@@ -1,0 +1,37 @@
+@import 'src/resources/styles';
+
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 18px;
+
+  .button {
+    width: 20px;
+    height: 20px;
+
+    background: inherit;
+    border: none;
+    cursor: pointer;
+
+    svg {
+      width: 20px;
+      height: 20px;
+
+      path {
+        fill: $light-2;
+        transition: all 0.2s linear;
+      }
+    }
+
+    &:hover path {
+      fill: $dark-2;
+    }
+  }
+  
+  .active {
+    svg path {
+      fill: $dark-main;
+    }
+  }
+}

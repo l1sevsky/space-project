@@ -1,7 +1,10 @@
 import React from 'react';
+import { PhotosFeed, Title } from 'components';
 
 export const MainPage = () => {
   return (
-    <p>Main page APOD</p>
+    <>
+      <PhotosFeed title='Early photos' />
+    </>
   )
 };

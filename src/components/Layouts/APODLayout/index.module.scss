@@ -1,0 +1,20 @@
+@import 'src/resources/styles';
+
+.layout {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 15px;
+  padding-top: 60px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  background-color: $bg-main;
+
+  .content {
+    width: 100%;
+    max-width: $max-page-content-width;
+  }
+}
