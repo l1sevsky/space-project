@@ -23,7 +23,7 @@
       "react/jsx-filename-extension": [
         "error",
         {
-          "extensions": [".ts", ".tsx"]
+          "extensions": [".ts", ".tsx", ".js", ".jsx"]
         }
       ],
       "react/function-component-definition": [
