@@ -52,7 +52,6 @@ const Asteroids = () => {
 
     // наблюдатель за изменением состояния полученных данных
     useEffect( () => {
-        console.log(marginWrapper.current.children)
         positioning(marginWrapper, MaxAsteroidsNumber)
     }, [infoList])
 
