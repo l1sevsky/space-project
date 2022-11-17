@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { AuthLayout, APODLayout } from 'components/Layouts';
 import { SignInPage, SignUpPage, MainPage as MainPageAuth } from 'pages/Auth';
 import { FavouritesPage, MainPage, MyCommentsPage, PostPage } from 'pages/APOD';
+import { AsteroidsLayout } from 'components/Layouts/AsteroidsLayout';
 
 const AppRouter = () => (
   <Routes>
@@ -13,6 +14,9 @@ const AppRouter = () => (
       <Route path='comments' element={<MyCommentsPage />} />
       <Route path='post/:id' element={<PostPage />} />
     </Route>
+
+    {/* ASTEROIDS */}
+    <Route path='/asteroids' element={<AsteroidsLayout />} />
 
     {/* AUTH  */}
     <Route path='/*' element={<AuthLayout />}>
