@@ -8,6 +8,7 @@ export const AuthLayout = () => {
       <nav>
         <Link to='/auth'>Авторизация</Link>
         <Link to='/register'>Регистрация</Link>
+        <Link to='/apod' >APOD</Link>
       </nav>
       <Outlet />
     </>

@@ -8,3 +8,4 @@ export { ListDisplay2Icon } from './ListDisplay2Icon';
 export { ListDisplay3Icon } from './ListDisplay3Icon';
 export { ShareIcon } from './ShareIcon';
 export { UserSettingsIcon } from './UserSettingsIcon';
+export { GoBackIcon } from './GoBackIcon';

@@ -8,7 +8,7 @@ type TProps = {
   setter: Function;
 };
 
-export const PhotosFeedSwitch = ({ currentValue, setter }: TProps) => {
+export const PostsFeedSwitch = ({ currentValue, setter }: TProps) => {
   const setValue = (number: 1 | 2 | 3) => () => setter(number);
 
   return (

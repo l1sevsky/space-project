@@ -1,0 +1,48 @@
+@import 'src/resources/styles';
+
+img {
+  border-radius: 3px;
+}
+
+.date {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: rgba($light-2, 0.6);
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 3px;
+  opacity: 0;
+  transition: all 0.2s linear;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .day {
+    font: $photo-hover-text-day;
+    letter-spacing: 0.05em;
+
+    @media screen and (min-width: $max-page-content-width) {
+      font: $photo-hover-text-day-max;
+    }
+  }
+  
+  .monthYear {
+    font: $photo-hover-text-month;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    @media screen and (min-width: $max-page-content-width) {
+      font: $photo-hover-text-month-max;
+    }
+  }
+}

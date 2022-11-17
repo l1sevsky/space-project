@@ -1,0 +1,17 @@
+@import 'src/resources/styles';
+
+.button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: inherit;
+
+  svg {
+    width: 28px !important;
+    height: 28px !important;
+
+    path { 
+      fill: $light-2;
+    }
+  }
+}
