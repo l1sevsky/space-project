@@ -1,5 +1,5 @@
 import React from 'react';
-import MiniInfoBlock from '../../min info block/MinInfoBlock';
+import MiniInfoBlock from 'components/min info block/MinInfoBlock';
 
 const MapWrapper = ({infoList, refProp, selected, asteroidInfo}) => {
 

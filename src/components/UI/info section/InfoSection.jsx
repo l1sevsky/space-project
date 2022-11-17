@@ -1,5 +1,5 @@
 import Button from '../button/Button';
-import InfoBlock from '../../info block/InfoBlock';
+import InfoBlock from 'components/info block/InfoBlock';
 
 const InfoSection = ({asteroidInfo, sourceRef}) => {
 

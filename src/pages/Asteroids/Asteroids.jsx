@@ -1,14 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useFetching } from '../../hooks/useFetching';
-import '../../pages/Asteroids/Asteroids.css';
+import { useFetching } from 'hooks/useFetching';
+import 'pages/Asteroids/Asteroids.css';
 
 import { Header } from 'components';
 
-import Main from '../../components/main/Main';
-import GetService from '../../API/GetService';
-import { positioning } from '../../utils/positioning';
-import Footer from '../../components/footer/Footer';
-import Navbar from '../../components/navbar/Navbar';
+import Main from 'components/main/Main';
+import GetService from 'API/GetService';
+import { positioning } from 'utils/positioning';
+import Footer from 'components/footer/Footer';
+import Navbar from 'components/navbar/Navbar';
 
 const Asteroids = () => {
 
