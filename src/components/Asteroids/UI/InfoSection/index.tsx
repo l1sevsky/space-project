@@ -1,11 +1,17 @@
 import React from 'react';
-import Button from '../button/Button';
-import InfoBlock from 'components/info block/InfoBlock';
+import RefInfoButton from 'components/Asteroids/UI/RefInfoButton';
+import InfoBlock from 'components/Asteroids/InfoBlock';
+import { TAsteroid } from 'resources/helpers/asteroidsUtils/types';
 
-const InfoSection = ({asteroidInfo, sourceRef}) => {
+type Tprops = {
+    asteroidInfo: TAsteroid | null,
+    sourceRef: string,
+}
 
-    function round(number) {
-        return Number(number).toFixed(5);
+const InfoSection = ({asteroidInfo, sourceRef}: Tprops) => {
+
+    function round(number: string | number) {
+        return Number(number).toFixed(2);
     }
 
     return (
@@ -53,11 +59,11 @@ const InfoSection = ({asteroidInfo, sourceRef}) => {
                     </section>
                 }
 
-                <Button>
+                <RefInfoButton>
                     <a href={sourceRef}>
                         <span>View Source Info On NASA Site</span>
                     </a>
-                </Button>
+                </RefInfoButton>
 
 	    </aside>
     );

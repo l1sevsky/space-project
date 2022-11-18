@@ -1,7 +1,7 @@
 import React from 'react';
-import cl from "./Button.module.css"
+import cl from "./RefInfoButton.module.css"
 
-const Button = ({children, ...props}) => {
+const Button = ({children}: React.PropsWithChildren) => {
 
     return (
         <button className={cl.Btn}>

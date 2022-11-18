@@ -42,7 +42,6 @@
       "import/order": "off",
       "linebreak-style": "off",
       "consistent-return": "off",
-      "no-param-reassign": "off",
-      "react/prop-types": "off"
+      "no-param-reassign": "off"
     }
   }

@@ -1,8 +1,18 @@
 import React from 'react';
-import InfoSection from '../UI/info section/InfoSection';
-import MapWrapper from '../UI/map wrapper/MapWrapper';
+import { TAsteroid } from 'resources/helpers/asteroidsUtils/types';
+import InfoSection from 'components/Asteroids/UI/InfoSection';
+import MapWrapper from 'components/Asteroids/UI/MapWrapper';
 
-const Main = ({infoList, refProp, selected, asteroidInfo, sourceRef}) => {
+type Tprops = {
+    infoList: TAsteroid[][],
+    refProp: React.LegacyRef<HTMLDivElement>,
+    selected: Function,
+    
+    asteroidInfo: TAsteroid | null,
+    sourceRef: string,
+}
+
+const Main = ({infoList, refProp, selected, asteroidInfo, sourceRef}: Tprops) => {
 
     return (
         <main>

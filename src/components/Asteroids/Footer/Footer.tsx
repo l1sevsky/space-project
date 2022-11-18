@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Footer = ({date}) => {
+type Tprops = {
+    date: string,
+}
+
+const Footer = ({date}: Tprops) => {
     return (
         <footer>
             <div className="calendar"></div>
