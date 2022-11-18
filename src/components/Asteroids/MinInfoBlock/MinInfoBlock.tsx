@@ -1,6 +1,11 @@
 import React from 'react';
 
-const MiniInfoBlock = ({children, textTitle, id}) => {
+type Tprops = {
+    textTitle: string,
+    id: string,
+} & React.PropsWithChildren
+
+const MiniInfoBlock = ({children, textTitle, id}: Tprops) => {
     return (
         <div className="info-block">
             <div className="name-icon" id={id}></div>

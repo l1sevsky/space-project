@@ -1,15 +1,16 @@
+import { TResponseData } from '../resources/helpers/asteroidsUtils/types';
 import axios from 'axios';
 
 export default class GetService {
 
-    static async getInfo(callback, dateCallback) {
+    static async getInfo(callback: Function, dateCallback: Function) {
         
         const keyAPI = 'YkdcoTOX3Z8lkaQ5hQvXZqsZSH5xdQMBdpp7JRzd'
 
         let date = (new Date()).toISOString().slice(0, 10)
         dateCallback(date)
 
-        const response = await axios.get(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${date}&end_date=${date}&api_key=${keyAPI}`)
+        const response: TResponseData = await axios.get(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${date}&end_date=${date}&api_key=${keyAPI}`)
         callback(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${date}&end_date=${date}&api_key=${keyAPI}`)
 
         // сортировка по расстоянию промаха

@@ -1,4 +1,4 @@
-import Button from 'components/UI/button/Button';
+import Button from 'components/Asteroids/UI/RefInfoButton';
 import React from 'react';
 import { Link } from "react-router-dom";
 

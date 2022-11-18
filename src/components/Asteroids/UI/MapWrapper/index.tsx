@@ -1,10 +1,19 @@
 import React from 'react';
-import MiniInfoBlock from 'components/min info block/MinInfoBlock';
+import MiniInfoBlock from 'components/Asteroids/MinInfoBlock/MinInfoBlock';
+import { TAsteroid } from 'resources/helpers/asteroidsUtils/types';
 
-const MapWrapper = ({infoList, refProp, selected, asteroidInfo}) => {
+type Tprops = {
+    infoList: TAsteroid[][]
+    refProp: React.LegacyRef<HTMLDivElement>,
+    selected: Function,
+    
+    asteroidInfo: TAsteroid | null,
+}
 
-    function round(number) {
-        return Number(number).toFixed(5);
+const MapWrapper = ({infoList, refProp, selected, asteroidInfo}: Tprops) => {
+
+    function round(number: number | string) {
+        return Number(number).toFixed(2);
     }
 
     return (
@@ -44,7 +53,7 @@ const MapWrapper = ({infoList, refProp, selected, asteroidInfo}) => {
                             <p>{asteroidInfo.close_approach_data[0].close_approach_date_full}</p>
                         </MiniInfoBlock>
 
-                        <MiniInfoBlock textTitle="MISS DISTANCE:">
+                        <MiniInfoBlock id="" textTitle="MISS DISTANCE:">
                             <p>{round(asteroidInfo.close_approach_data[0].miss_distance.kilometers)} KILOMETERS</p>
                         </MiniInfoBlock>
 

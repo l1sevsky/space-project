@@ -1,6 +1,10 @@
 import React from 'react';
+type TProps = {
+    textTitle: string,
+    id: string,
+} & React.PropsWithChildren
 
-const InfoBlock = ({children, textTitle, id}) => {
+const InfoBlock = ({children, textTitle, id}: TProps) => {
     return (
         <div className="info-block">
             <div className="title-block">

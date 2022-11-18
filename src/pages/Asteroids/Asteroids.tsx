@@ -1,28 +1,31 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useFetching } from 'hooks/useFetching';
+import { useFetching } from 'resources/hooks/useFetching';
 import 'pages/Asteroids/Asteroids.css';
 
 import { Header } from 'components';
 
-import Main from 'components/main/Main';
+import Main from 'components/Asteroids/Main/Main';
 import GetService from 'API/GetService';
-import { positioning } from 'utils/positioning';
-import Footer from 'components/footer/Footer';
-import Navbar from 'components/navbar/Navbar';
+import { positioning } from 'resources/helpers/asteroidsUtils/positioning';
+import Footer from 'components/Asteroids/Footer/Footer';
+import Navbar from 'components/Asteroids/Navbar/Navbar';
+
+import { TAsteroid } from 'resources/helpers/asteroidsUtils/types';
+import Loader from 'components/Loader/Loader';
 
 const Asteroids = () => {
 
     // состояние списка информации об астероидах
-    const [infoList, setInfoList] = useState([])
+    const [infoList, setInfoList] = useState<TAsteroid[][]>([])
 
     // ограничение на максимальное количество показываемых астероидов
-    const [MaxAsteroidsNumber, setMaxAsteroidsNumber] = useState(10)
+    const MaxAsteroidsNumber = 10
 
     // получение данных 
-    const [fetchInfo, fetchError] = useFetching( async () => {
+    const {fetchInfo, fetchError} = useFetching( async () => {
     
         let response = await GetService.getInfo(setSourceRef, setUpdateDate);
-        let slicedArray = [], finalArray = []
+        let slicedArray: TAsteroid[] = [], finalArray: TAsteroid[][] = []
         
         // слайс необходимого количества элементов
         if(response.length > MaxAsteroidsNumber) {
@@ -45,14 +48,16 @@ const Asteroids = () => {
     }, [])
 
     // ссылка на контейнер с системой астероидов
-    const marginWrapper = useRef()
+    const marginWrapper = useRef() as React.LegacyRef<HTMLDivElement>
 
     // ссылка на объект NASA
     const [sourceRef, setSourceRef] = useState(null)
 
     // наблюдатель за изменением состояния полученных данных
     useEffect( () => {
-        positioning(marginWrapper, MaxAsteroidsNumber)
+        if(infoList.length) {
+            positioning(marginWrapper, MaxAsteroidsNumber)
+        }
     }, [infoList])
 
     // состояние выбранного астероида для вывода информации о нём
@@ -65,14 +70,21 @@ const Asteroids = () => {
         <div className='App'>
             <Header />
             <Navbar />
-            <Main
-                refProp={marginWrapper}
-                infoList={infoList}
-                selected = {setSelectedAsteroid}
-                asteroidInfo={selectedAsteroid}
-                sourceRef={sourceRef}
-            />
-            <Footer date={updateDate} />
+            {sourceRef && updateDate
+            ?
+                <>
+                    <Main
+                        refProp={marginWrapper}
+                        infoList={infoList}
+                        selected = {setSelectedAsteroid}
+                        asteroidInfo={selectedAsteroid}
+                        sourceRef={sourceRef}
+                    />
+                    <Footer date={updateDate} />
+                </>
+            :
+                <Loader />
+        }
         </div>
     );
 }
