@@ -1,3 +1,4 @@
+import React from 'react';
 import Button from '../button/Button';
 import InfoBlock from 'components/info block/InfoBlock';
 
