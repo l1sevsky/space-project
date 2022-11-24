@@ -6,9 +6,10 @@ import css from './index.module.scss';
 
 type TProps = {
   post: TApodPost,
+  hasHoverDate?: boolean;
 };
 
-export const FeedElement = ({ post }: TProps) => {
+export const FeedElement = ({ post, hasHoverDate = true }: TProps) => {
   const dateParts = getDateParts(post.date);
 
   return (
@@ -27,10 +28,15 @@ export const FeedElement = ({ post }: TProps) => {
               </>
             )
       }
-      <div className={css.date}>
-        <p className={css.day}>{ dateParts.day }</p>
-        <p className={css.monthYear}>{ `${dateParts.month} ${dateParts.year}` }</p>
-      </div>
+      {
+        hasHoverDate &&
+        (
+          <div className={css.date}>
+            <p className={css.day}>{ dateParts.day }</p>
+            <p className={css.monthYear}>{ `${dateParts.month} ${dateParts.year}` }</p>
+          </div>
+        )
+      }
     </>
   );
 };

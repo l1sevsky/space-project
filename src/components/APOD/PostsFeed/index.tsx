@@ -6,7 +6,8 @@ import css from './index.module.scss';
 import { TApodPost } from 'store/slices/apod';
 import { Title } from 'components/APOD/Title';
 import { PostsFeedSwitch } from 'components/APOD/PostsFeedSwitch';
-import { FeedElement } from './FeedElement';
+import { FeedElement } from 'components/APOD/FeedElement';
+import { Post } from 'components/APOD/Post';
 
 
 type TProps = {
@@ -22,16 +23,27 @@ export const PostsFeed = ({ posts }: TProps) => {
       <Title title='Early photos'>
         <PostsFeedSwitch currentValue={onFeedRow} setter={setOnFeedRow} />
       </Title>
-      <div className={classnames(css.feed, css[`onRow${onFeedRow}`])}>
-        {
+      {
+        onFeedRow === 1
+        ? (
           posts.map((post, i) => (
-              <Link key={i} className={css.postPhoto} to={post.date}>
-                <FeedElement post={post} />
-              </Link>
-            )
+            <Post post={post} key={i} />
           )
-        }
-      </div>
+        )
+        )
+        : (
+          <div className={classnames(css.feed, css[`onRow${onFeedRow}`])}>
+            {
+              posts.map((post, i) => (
+                  <Link key={i} className={css.postPhoto} to={post.date}>
+                    <FeedElement post={post} />
+                  </Link>
+                )
+              )
+            }
+          </div>
+        )
+      }
     </>
   );
 };

@@ -3,6 +3,7 @@ export { CalendarIcon } from './CalendarIcon';
 export { CommentsIcon } from './CommentsIcon';
 export { DownloadIcon } from './DownloadIcon';
 export { LikeIcon } from './LikeIcon';
+export { DislikeIcon } from './DislikeIcon';
 export { ListDisplay1Icon } from './ListDisplay1Icon';
 export { ListDisplay2Icon } from './ListDisplay2Icon';
 export { ListDisplay3Icon } from './ListDisplay3Icon';
