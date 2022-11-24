@@ -1,5 +1,5 @@
-import classNames from 'classnames';
 import React from 'react';
+import classNames from 'classnames';
 import { ListDisplay1Icon, ListDisplay2Icon, ListDisplay3Icon } from 'resources/icons';
 import css from './index.module.scss';
 

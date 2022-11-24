@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { PostsFeed } from 'components/PostsFeed';
+import { PostsFeed } from 'components/APOD/PostsFeed';
 import { useDispatch, useSelector } from 'react-redux';
 import { ApodSlice } from 'store/slices';
 

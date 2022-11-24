@@ -4,8 +4,8 @@ import classnames from 'classnames';
 import css from './index.module.scss';
 
 import { TApodPost } from 'store/slices/apod';
-import { Title } from 'components/Title';
-import { PostsFeedSwitch } from 'components/PostsFeedSwitch';
+import { Title } from 'components/APOD/Title';
+import { PostsFeedSwitch } from 'components/APOD/PostsFeedSwitch';
 import { FeedElement } from './FeedElement';
 
 

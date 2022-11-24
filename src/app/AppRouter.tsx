@@ -1,9 +1,9 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { AuthLayout, APODLayout } from 'components/Layouts';
+import { AuthLayout, APODLayout } from 'components/General/Layouts';
 import { SignInPage, SignUpPage, MainPage as MainPageAuth } from 'pages/Auth';
 import { FavouritesPage, MainPage, MyCommentsPage, PostPage } from 'pages/APOD';
-import { AsteroidsLayout } from 'components/Layouts/AsteroidsLayout';
+import { AsteroidsLayout } from 'components/General/Layouts/AsteroidsLayout';
 
 const AppRouter = () => (
   <Routes>

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useFetching } from 'resources/hooks/useFetching';
 import 'pages/Asteroids/Asteroids.css';
 
-import { Header } from 'components';
+import { Header } from 'components/General/Header';
 
 import Main from 'components/Asteroids/Main/Main';
 import GetService from 'API/GetService';
@@ -11,7 +11,7 @@ import Footer from 'components/Asteroids/Footer/Footer';
 import Navbar from 'components/Asteroids/Navbar/Navbar';
 
 import { TAsteroid } from 'resources/helpers/asteroidsUtils/types';
-import Loader from 'components/Loader/Loader';
+import Loader from 'components/General/Loader/Loader';
 
 const Asteroids = () => {
 
