@@ -10,6 +10,12 @@
   justify-content: flex-start;
   gap: 16px;
 
+  @media screen and (min-width: $max-twoline-width) {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
   .postActionsBlock {
     width: 100%;
     display: flex;
@@ -24,8 +30,8 @@
       position: relative;
       flex: 1;
 
-      min-width: 80%;
-      padding-top: 80%;
+      min-width: 100%;
+      padding-top: 100%;
 
       border: none;
       background: inherit;
@@ -38,35 +44,11 @@
         height: 100%;
         object-fit: cover;
       }
-    }
+      
 
-    .postActions {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 30px;
-
-      & button {
-        margin: 0;
-        padding: 0;
-        border: none;
-        background: rgba(0, 0, 0, 0);
-        cursor: pointer;
-      }
-
-      & svg {
-        width: 36px;
-        height: 36px;
-
-        path {
-          fill: $light-2;
-          transition: all 0.3s linear;
-        }
-
-        &:hover path {
-          fill: $dark-2;
-        }
+      @media screen and (min-width: $max-twoline-width) {
+        width: 40vw;
+        flex: 1;
       }
     }
   }
@@ -116,6 +98,20 @@
           letter-spacing: 0.05em;
           color: $dark-2;
         }
+      }
+    }
+    
+    @media screen and (min-width: $max-twoline-width) {
+      .postTitle {
+        font-size: 40px;
+        line-height: 40px;
+        letter-spacing: 0;
+        margin-bottom: 20px;
+      }
+
+      .postDescription {
+        font-size: 14px;
+        line-height: 18px;
       }
     }
   }

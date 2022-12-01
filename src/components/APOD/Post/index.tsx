@@ -1,7 +1,8 @@
 import React from 'react';
+import { getDateParts } from 'resources/helpers';
 import { AuthorIcon, CalendarIcon, CommentsIcon, DislikeIcon, LikeIcon, ShareIcon } from 'resources/icons';
 import { TApodPost } from 'store/slices/apod';
-import { FeedElement } from '../FeedElement';
+import { FeedElement } from 'components/APOD/FeedElement';
 import css from './index.module.scss';
 
 type TProps = {
@@ -9,6 +10,7 @@ type TProps = {
 };
 
 export const Post = ({ post }: TProps) => {
+  const dateParts = getDateParts(post.date);
 
   return (
     <div className={css.wrap}>
@@ -16,20 +18,6 @@ export const Post = ({ post }: TProps) => {
         <button className={css.imageAction}>
           <FeedElement post={post} hasHoverDate={false} />
         </button>
-        <div className={css.postActions}>
-          <button>
-            <ShareIcon />
-          </button>
-          <button>
-            <LikeIcon />
-          </button>
-          <button>
-            <DislikeIcon />
-          </button>
-          <button>
-            <CommentsIcon />
-          </button>
-        </div>
       </div>
 
       <div className={css.postInfo}>
@@ -38,7 +26,7 @@ export const Post = ({ post }: TProps) => {
         <div className={css.postMeta}>
           <div className={css.metaWrap}>
             <CalendarIcon />
-            <span>{ post.date }</span>
+            <span>{ `${dateParts.day} ${dateParts.month} ${dateParts.year}` }</span>
           </div>
           {
             !!post.copyright &&
