@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { InView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 import css from './index.module.scss';
@@ -8,19 +9,39 @@ import { Title } from 'components/APOD/Title';
 import { PostsFeedSwitch } from 'components/APOD/PostsFeedSwitch';
 import { FeedElement } from 'components/APOD/FeedElement';
 import { Post } from 'components/APOD/Post';
+import Loader from 'components/General/Loader/Loader';
 
 
 type TProps = {
   posts: TApodPost[],
+  title: string,
+  observerAction: () => void;
+  isLoading: boolean;
 };
 
 
-export const PostsFeed = ({ posts }: TProps) => {
+export const PostsFeed = ({ posts, title, observerAction, isLoading }: TProps) => {
   const [onFeedRow, setOnFeedRow] = useState<1 | 2 | 3>(3);
+
+  const onViewChanged = (isLoading: boolean) =>
+    (inView: boolean, entry: IntersectionObserverEntry) => {
+      if (inView && entry.isIntersecting && !isLoading) observerAction();
+    };
+
+  const observerElement = (isLoading: boolean) => (
+    <InView threshold={0} onChange={onViewChanged(isLoading)}>
+      {({ ref }) => (
+        <>
+          <div className={css.observer} ref={ref} />
+          { isLoading && <Loader /> }
+        </>
+      )}
+    </InView>
+  );
 
   return (
     <>
-      <Title title='Early photos'>
+      <Title title={title}>
         <PostsFeedSwitch currentValue={onFeedRow} setter={setOnFeedRow} />
       </Title>
       {
@@ -40,6 +61,9 @@ export const PostsFeed = ({ posts }: TProps) => {
                   </Link>
                 )
               )
+            }
+            {
+              !!posts.length && observerElement(isLoading)
             }
           </div>
         )

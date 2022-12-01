@@ -1,20 +1,22 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { AuthLayout, APODLayout } from 'components/General/Layouts';
+import { APODLayout } from 'components/General/Layouts';
 import { MainPage, PostPage } from 'pages/APOD';
+import { CatalogPage } from 'pages/Catalog';
 import { AsteroidsLayout } from 'components/General/Layouts/AsteroidsLayout';
 
 const AppRouter = () => (
   <Routes>
-    {/* APOD */}
-    <Route path='/apod/*' element={<APODLayout />}>
-      <Route index element={<MainPage />} />
-      <Route path='post/:id' element={<PostPage />} />
-    </Route>
-
     {/* ASTEROIDS */}
     <Route path='/asteroids' element={<AsteroidsLayout />} />
-    <Route path='*' element={<Navigate to='/apod' replace />} />
+
+    {/* APOD */}
+    <Route path='/' element={<APODLayout />}>
+      <Route index element={<CatalogPage />} />
+      <Route path='apod' element={<MainPage />} />
+      <Route path='post/:id' element={<PostPage />} />
+      <Route path='*' element={<Navigate to='/' replace />} />
+    </Route>
 
   </Routes>
 );

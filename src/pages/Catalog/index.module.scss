@@ -1,0 +1,16 @@
+@import 'src/resources/styles';
+
+.catalog {
+  margin-bottom: 100px;
+  width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 30px;
+
+  @media screen and (max-width: $max-twoline-catalog-card-width) {
+    flex-direction: column;
+  }
+}

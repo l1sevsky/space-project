@@ -8,11 +8,12 @@ $light-2: #C7C4CE;
 $highlight: #DF6868;
 
 // shadows
-$shadow-header: 0 2px 20px rgba(#CCCCCC, 0.2);
+$shadow-header: 0 2px 20px rgba(#CCCCCC, 0.4);
 
 // sizes
 $max-page-content-width: 1100px;
 $max-twoline-width: 800px;
+$max-twoline-catalog-card-width: 650px;
 
 // fonts
 $h2: 600 16px/20px Montserrat, sans-serif;
@@ -23,6 +24,9 @@ $photo-hover-text-day: 800 11vw/11vw Montserrat, sans-serif;
 $photo-hover-text-day-max: 800 120px/120px Montserrat, sans-serif;
 $photo-hover-text-month: 800 2vw/2vw Montserrat, sans-serif;
 $photo-hover-text-month-max: 800 24px/24px Montserrat, sans-serif;
+
+$card-title: 700 14px/17px Roboto, sans-serif;
+$card-description: 400 12px/15px Montserrat, sans-serif;
 
 // dev vars
 $plug-color: inherit;

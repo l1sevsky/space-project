@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { getDateParts } from 'resources/helpers';
-import { PlayIcon } from 'resources/icons';
 import { TApodPost } from 'store/slices/apod';
+import { Skeleton } from 'components/General/Skeleton';
 import css from './index.module.scss';
 
 type TProps = {
@@ -10,26 +10,23 @@ type TProps = {
 };
 
 export const FeedElement = ({ post, hasHoverDate = true }: TProps) => {
+  const [showSkeleton, setShowSkeleton] = useState(true);
+
+  let imageSrc: string;
   const dateParts = getDateParts(post.date);
+
+  if (post.media_type === 'image') imageSrc = post.url;
+  else if (post.thumbnail_url.length) imageSrc = post.thumbnail_url;
+  else imageSrc = process.env.PUBLIC_URL + '/images/nasaActivityPlug.png';
 
   return (
     <>
+      <img src={imageSrc} onLoad={() => setShowSkeleton(false)} hidden={showSkeleton} />
       {
-        post.media_type === 'image'
-        ? <img src={post.url} />
-        : !post.thumbnail_url.length
-          ? <img src={process.env.PUBLIC_URL + '/images/nasaActivityPlug.png'} />
-          : (
-              <>
-                <img src={post.thumbnail_url} />
-                <div className={css.playIconWrap}>
-                  <PlayIcon />
-                </div>
-              </>
-            )
+        showSkeleton && <Skeleton />
       }
       {
-        hasHoverDate &&
+        !showSkeleton && hasHoverDate &&
         (
           <div className={css.date}>
             <p className={css.day}>{ dateParts.day }</p>

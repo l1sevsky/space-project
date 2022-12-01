@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ApodSlice } from 'store/slices';
 import { Post } from 'components/APOD/Post';
 import { Title } from 'components/APOD/Title';
+import Loader from 'components/General/Loader/Loader';
 
 export const MainPage = () => {
   const dispatch = useDispatch<any>();
@@ -21,11 +22,24 @@ export const MainPage = () => {
 
   return (
     <>
-      <Title title="Daily photo" />
-      {!!posts.length && <Post post={posts[0]}/>}
-      <PostsFeed posts={posts.slice(1)} />
-      { isLoading && <p style={{'color': 'steelblue', 'margin': '10px 0'}}>Loading...</p> }
-      <button onClick={getNextPosts} style={{'margin': '40px 0', 'padding': 5}}>Get next posts</button>
+    {
+      !!posts.length
+      ? (
+        <>
+          <Title title="Daily photo" />
+          <Post post={posts[0]}/>
+          <PostsFeed 
+            posts={posts.slice(1)} 
+            title='Early photos' 
+            observerAction={getNextPosts} 
+            isLoading={isLoading} 
+          />
+        </>
+      )
+      : (
+        <Loader />
+      )
+    }
     </>
-  )
+  );
 };
