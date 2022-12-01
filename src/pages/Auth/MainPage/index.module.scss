@@ -1,0 +1,44 @@
+@import 'src/resources/styles';
+
+.layout {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 15px;
+  padding-top: 60px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  background-color: $bg-main;
+
+  .content {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    width: 100%;
+    max-width: $max-page-content-width;
+
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .content > * {
+    margin-top: 3%;
+
+    border-bottom: none;
+    padding-bottom: 5px;
+
+    border-bottom: 1px solid rgba(0,0,0,0);
+    transition: all 0.5s;
+  }
+
+  .content > *:hover {
+    text-decoration: none;
+
+    border-bottom: 1px solid #666666;
+    transition: border-bottom 0.5s;
+  }
+}
