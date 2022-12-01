@@ -1,0 +1,118 @@
+@import 'src/resources/styles';
+
+.wrap {
+  width: 100%;
+  margin-bottom: 50px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+
+  @media screen and (min-width: $max-twoline-width) {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .postActionsBlock {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+
+    .imageAction {
+      margin: 0;
+      padding: 0;
+      position: relative;
+      flex: 1;
+
+      min-width: 100%;
+      padding-top: 100%;
+
+      border: none;
+      background: inherit;
+
+      & > * {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+
+      @media screen and (min-width: $max-twoline-width) {
+        width: 40vw;
+        flex: 1;
+      }
+    }
+  }
+
+  .postInfo {
+    .postTitle {
+      margin-bottom: 8px;
+
+      font: $h3;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: $dark-main;
+    }
+
+    .postDescription {
+      margin-bottom: 20px;
+
+      font: $p;
+      letter-spacing: 0.05em;
+      color: $dark-main;
+    }
+
+    .postMeta {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 24px;
+
+      .metaWrap {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+
+        svg {
+          width: 18px;
+          height: 18px;
+
+          path {
+            fill: $dark-2;
+          }
+        }
+
+        span {
+          font: $attribute;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          color: $dark-2;
+        }
+      }
+    }
+    
+    @media screen and (min-width: $max-twoline-width) {
+      .postTitle {
+        font-size: 40px;
+        line-height: 40px;
+        letter-spacing: 0;
+        margin-bottom: 20px;
+      }
+
+      .postDescription {
+        font-size: 14px;
+        line-height: 18px;
+      }
+    }
+  }
+}

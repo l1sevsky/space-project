@@ -1,8 +1,7 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { AuthLayout, APODLayout } from 'components/General/Layouts';
-import { SignInPage, SignUpPage, MainPage as MainPageAuth } from 'pages/Auth';
-import { FavouritesPage, MainPage, MyCommentsPage, PostPage } from 'pages/APOD';
+import { MainPage, PostPage } from 'pages/APOD';
 import { AsteroidsLayout } from 'components/General/Layouts/AsteroidsLayout';
 
 const AppRouter = () => (
@@ -10,23 +9,12 @@ const AppRouter = () => (
     {/* APOD */}
     <Route path='/apod/*' element={<APODLayout />}>
       <Route index element={<MainPage />} />
-      <Route path='favourites' element={<FavouritesPage />} />
-      <Route path='comments' element={<MyCommentsPage />} />
       <Route path='post/:id' element={<PostPage />} />
     </Route>
 
     {/* ASTEROIDS */}
     <Route path='/asteroids' element={<AsteroidsLayout />} />
-
-    {/* AUTH  */}
-    <Route path='/*' element={<AuthLayout />}>
-      <Route index element={<MainPageAuth />} />
-      <Route path='auth' element={<SignInPage />}/>
-      <Route path='register' element={<SignUpPage />}/>
-    
-      {/* DEFAULT */}
-      <Route path='*' element={<Navigate to='/apod' replace />} />
-    </Route>
+    <Route path='*' element={<Navigate to='/apod' replace />} />
 
   </Routes>
 );
