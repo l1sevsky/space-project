@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
-import { PostsFeed } from 'components/APOD/PostsFeed';
+import { PostsFeed, PostsFeedSkeleton } from 'components/APOD/PostsFeed';
 import { useDispatch, useSelector } from 'react-redux';
 import { ApodSlice } from 'store/slices';
 import { Post, PostSkeleton } from 'components/APOD/Post';
 import { Title } from 'components/APOD/Title';
-import Loader from 'components/General/Loader/Loader';
 
 export const MainPage = () => {
   const dispatch = useDispatch<any>();
@@ -22,25 +21,20 @@ export const MainPage = () => {
 
   return (
     <>
-    {
-      !!posts.length
-      ? (
-        <>
-          <Title title="Daily photo" />
-          <Post post={posts[0]}/>
-          {/* <PostSkeleton /> */}
+      <Title title="Daily photo" />
+      { !!posts.length ? <Post post={posts[0]} /> : <PostSkeleton /> }
+      { 
+        !!posts.length 
+        ? 
           <PostsFeed 
             posts={posts.slice(1)} 
             title='Early photos' 
             observerAction={getNextPosts} 
             isLoading={isLoading} 
           />
-        </>
-      )
-      : (
-        <Loader />
-      )
-    }
+        : 
+          <PostsFeedSkeleton title='Early photos'/>
+      }
     </>
   );
 };

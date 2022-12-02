@@ -1,11 +1,12 @@
 @import 'src/resources/styles';
 
 .feed {
+  padding: 3px 0;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 6px;
 
   .postPhoto {
     margin: 0;
