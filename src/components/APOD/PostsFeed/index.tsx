@@ -8,8 +8,7 @@ import { TApodPost } from 'store/slices/apod';
 import { Title } from 'components/APOD/Title';
 import { PostsFeedSwitch } from 'components/APOD/PostsFeedSwitch';
 import { FeedElement } from 'components/APOD/FeedElement';
-import { Post } from 'components/APOD/Post';
-import Loader from 'components/General/Loader/Loader';
+import { Post, PostSkeleton } from 'components/APOD/Post';
 import { PostsFeedSkeleton } from './skeleton';
 
 
@@ -34,7 +33,11 @@ export const PostsFeed = ({ posts, title, observerAction, isLoading }: TProps) =
       {({ ref }) => (
         <>
           <div ref={ref} />
-          <PostsFeedSkeleton rows={1}/>
+          {
+            onFeedRow === 1
+            ? <PostSkeleton />
+            : <PostsFeedSkeleton rows={1} onRow={onFeedRow} />
+          }
         </>
       )}
     </InView>
