@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { getDateParts } from 'resources/helpers';
-import { AuthorIcon, CalendarIcon, CommentsIcon, DislikeIcon, LikeIcon, ShareIcon } from 'resources/icons';
+import { AuthorIcon, CalendarIcon } from 'resources/icons';
 import { TApodPost } from 'store/slices/apod';
 import { FeedElement } from 'components/APOD/FeedElement';
 import css from './index.module.scss';
+import { useBreakPoint } from 'resources/hooks/useBreakPoint';
 
 type TProps = {
   post: TApodPost;
 };
 
 export const Post = ({ post }: TProps) => {
+  const [showAllDescription, setShowAllDescription] = useState(false);
+  const oneColumnVersion = useBreakPoint(800); 
+
   const dateParts = getDateParts(post.date);
+
+  const showMore = () => setShowAllDescription(true);
+  
 
   return (
     <div className={css.wrap}>
@@ -21,8 +28,21 @@ export const Post = ({ post }: TProps) => {
       </div>
 
       <div className={css.postInfo}>
-        <h3 className={css.postTitle}>{ post.title }</h3>
-        <p className={css.postDescription}>{ post.explanation }</p>
+        <h3 className={css.postTitle}>
+          { post.title }
+        </h3>
+        <p className={css.postDescription}>
+          {
+            !oneColumnVersion || showAllDescription || post.explanation.length < 70
+            ? post.explanation
+            : (
+              <>
+                { post.explanation.slice(0, 70).concat('...  ') }
+                <button className={css.btnShowMore} onClick={showMore}>Show more</button>
+              </>
+            )
+          }
+        </p>
         <div className={css.postMeta}>
           <div className={css.metaWrap}>
             <CalendarIcon />
@@ -42,3 +62,6 @@ export const Post = ({ post }: TProps) => {
     </div>
   );
 };
+
+
+export { PostSkeleton } from './skeleton';

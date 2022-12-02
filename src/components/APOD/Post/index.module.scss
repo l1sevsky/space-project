@@ -44,10 +44,10 @@
         height: 100%;
         object-fit: cover;
       }
-      
 
       @media screen and (min-width: $max-twoline-width) {
         width: 40vw;
+        max-width: calc(#{$max-page-content-width} / 2);
         flex: 1;
       }
     }
@@ -69,6 +69,20 @@
       font: $p;
       letter-spacing: 0.05em;
       color: $dark-main;
+
+      .btnShowMore {
+        margin: 0;
+        padding: 2px 0;
+        display: inline-block;
+
+        background: inherit;
+        border: none;
+
+        font: $p;
+        font-weight: bold;
+        letter-spacing: 0.05em;
+        color: $highlight;
+      }
     }
 
     .postMeta {
@@ -112,6 +126,51 @@
       .postDescription {
         font-size: 14px;
         line-height: 18px;
+      }
+    }
+  }
+}
+
+.skeleton {
+  .postInfo {
+    flex: 1;
+
+    .postTitle, .postDescription, .metaWrap {
+      display: block;
+      border-radius: 3px;
+    }
+
+    .postTitle {
+      width: 70vw;
+      height: 24px;
+    }
+
+    .postDescription {
+      width: 95vw;
+      height: 60px;
+    }
+
+    .metaWrap {
+      width: 15vw;
+      height: 22px;
+    }
+
+    @media screen and (min-width: $max-twoline-width) {
+
+      .postTitle {
+        width: 40vw;
+        max-width: calc(#{$max-page-content-width} / 2.4);
+        height: 40px;
+      }
+
+      .postDescription {
+        width: 50vw;
+        max-width: calc(#{$max-page-content-width} / 2);
+        height: 250px;
+      }
+
+      .metaWrap {
+        max-width: calc(#{$max-page-content-width} / 6);
       }
     }
   }
