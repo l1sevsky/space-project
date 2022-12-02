@@ -10,7 +10,7 @@ type TProps = {
 export const PostLink = ({ text, url }: TProps) => {
 
   return (
-    <a className={css.wrap} href={url}>
+    <a className={css.wrap} href={url} target="_blank" rel="noreferrer">
       <ShareIcon />
       <span className={css.text}>
         { text }

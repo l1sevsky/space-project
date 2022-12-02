@@ -15,12 +15,8 @@ export const PostSkeleton = () => {
       </div>
 
       <div className={css.postInfo}>
-        <h3 className={css.postTitle}>
-          <Skeleton />
-        </h3>
-        <p className={css.postDescription}>
-          <Skeleton />
-        </p>
+        <Skeleton className={css.postTitle} />
+        <Skeleton className={css.postDescription} />
         <div className={css.postMeta}>
           <div className={css.metaWrap}>
             <Skeleton />

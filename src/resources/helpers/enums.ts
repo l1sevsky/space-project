@@ -4,3 +4,9 @@ export enum RequestStatuses {
   SUCCESS = 'SUCCESS',
   FAILURE = 'FAILURE',
 }
+
+export enum ApodStateTypes {
+  betweenDates = 'betweenDates',
+  randomDates = 'randomDates',
+  init = 'init',
+}

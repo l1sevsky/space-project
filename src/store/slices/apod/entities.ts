@@ -1,4 +1,4 @@
-import { RequestStatuses } from 'resources/helpers';
+import { RequestStatuses, ApodStateTypes } from 'resources/helpers';
 
 export type TApodPost = {
   url: string;
@@ -14,8 +14,9 @@ export type TApodPost = {
 };
 
 export type TApodState = {
-  postsType: 'betweenDates' | 'randomDates' | null;
+  postsType: ApodStateTypes;
   data: TApodPost[];
+  currentPost: TApodPost | null;
   status: RequestStatuses;
   error: Error | null;
 }
@@ -30,4 +31,8 @@ export type TApodState = {
 export type TApodRequestBetweenDatesParams = {
   start_date: string;
   end_date: string;
+}
+
+export type TApodRequestPostFromDate = {
+  date: string;
 }
