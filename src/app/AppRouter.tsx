@@ -14,7 +14,7 @@ const AppRouter = () => (
     <Route path='/' element={<APODLayout />}>
       <Route index element={<CatalogPage />} />
       <Route path='apod' element={<MainPage />} />
-      <Route path='post/:id' element={<PostPage />} />
+      <Route path='apod/:id' element={<PostPage />} />
       <Route path='*' element={<Navigate to='/' replace />} />
     </Route>
 

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { getDateParts } from 'resources/helpers';
+import { getDateParts, getPostUrlsForType } from 'resources/helpers';
 import { AuthorIcon, CalendarIcon } from 'resources/icons';
 import { TApodPost } from 'store/slices/apod';
 import { FeedElement } from 'components/APOD/FeedElement';
-import css from './index.module.scss';
+import { PostLink } from 'components/APOD//PostLink';
 import { useBreakPoint } from 'resources/hooks/useBreakPoint';
+import css from './index.module.scss';
 
 type TProps = {
   post: TApodPost;
@@ -14,10 +15,10 @@ export const Post = ({ post }: TProps) => {
   const [showAllDescription, setShowAllDescription] = useState(false);
   const oneColumnVersion = useBreakPoint(800); 
 
+  const { linkUrl, linkText } = getPostUrlsForType(post);
   const dateParts = getDateParts(post.date);
 
   const showMore = () => setShowAllDescription(true);
-  
 
   return (
     <div className={css.wrap}>
@@ -25,6 +26,7 @@ export const Post = ({ post }: TProps) => {
         <button className={css.imageAction}>
           <FeedElement post={post} hasHoverDate={false} />
         </button>
+        <PostLink text={linkText} url={linkUrl} />
       </div>
 
       <div className={css.postInfo}>
