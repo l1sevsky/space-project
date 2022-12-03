@@ -8,3 +8,5 @@ const getApodSlice = (state: TState) => state.apod;
 export const apodPosts = createSelector(getApodSlice, (slice) => slice.data);
 export const apodPostsIsLoading = createSelector(getApodSlice, (slice) => slice.status === RequestStatuses.LOADING);
 export const apodPostsIsError = createSelector(getApodSlice, (slice) => slice.status === RequestStatuses.FAILURE);
+export const apodPostsStoreType = createSelector(getApodSlice, (slice) => slice.postsType);
+export const apodCurrentPost = createSelector(getApodSlice, (slice) => slice.currentPost);

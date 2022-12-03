@@ -1,0 +1,37 @@
+@import 'src/resources/styles';
+
+.wrap {
+  margin: 0;
+  padding: 0 10px;
+  width: auto;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  
+  background-color: $highlight;
+  border-radius: 15px;
+  opacity: 0.5;
+  transition: all 0.3s linear;
+
+  svg {
+    width: 20px;
+    height: 20px;
+
+    path {
+      fill: $bg-light;
+    }
+  }
+
+  .text {
+    font: $post-link;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $bg-light;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

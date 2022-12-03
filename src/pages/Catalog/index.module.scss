@@ -8,7 +8,7 @@
   flex-wrap: wrap;
   align-items: stretch;
   justify-content: flex-start;
-  gap: 30px;
+  gap: 20px;
 
   @media screen and (max-width: $max-twoline-catalog-card-width) {
     flex-direction: column;

@@ -27,3 +27,21 @@ export const getNextPostsAsync = createAsyncThunk(
     }
   },
 );
+
+export const getPostFromDateAsync = createAsyncThunk(
+  'apod/getPostFromDate',
+  async (date: string, { rejectWithValue, getState }) => {
+    try {
+      const { apod } = getState() as { apod: TApodState};
+      const [availablePost] = apod.data.filter(post => post.date === date);
+
+      if (availablePost) return availablePost;
+      
+      const { data } = await apodService.getPostFromDate({ date });
+      return data;
+    } catch (error) {
+      const serializedError = miniSerializeError(error);
+      return rejectWithValue(serializedError);
+    }
+  }
+);

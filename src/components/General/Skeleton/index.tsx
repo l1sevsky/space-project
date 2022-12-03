@@ -9,6 +9,6 @@ type TProps = {
 export const Skeleton = ({ className = '' }: TProps) => {
 
   return (
-    <div className={classNames(css.skeleton, className)}></div>
+    <div className={classNames(css.skeleton, className)} />
   );
 };
