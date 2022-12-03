@@ -1,0 +1,37 @@
+@import "src/resources/styles";
+
+.Btn {
+  height: 10%;
+  background: var(--SourceBG);
+  position: relative;
+  padding: 1%;
+  color: var(--SvgColor);
+  border: 1px solid var(--SvgTrColor);
+  border-radius: 15px;
+  box-shadow: $shadow-header;
+  cursor: pointer;
+}
+
+.Btn span {
+  position: relative;
+  z-index: 1;
+  font: $p;
+  font-size: 1.2em;
+}
+
+.Btn:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0.2;
+  clip-path: circle(0 at top center);
+  transition: 0.75s ease-out;
+}
+
+.Btn:hover:before {
+  clip-path: circle(1000px at center);
+}

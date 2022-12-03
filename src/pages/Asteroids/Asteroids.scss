@@ -1,0 +1,365 @@
+@import "src/resources/styles";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: var(--SvgColor);
+}
+
+:root {
+  --SvgColor: #666666;
+  --SvgTrColor: rgba(102, 102, 102, 0.3);
+  --WhiteBG: #ffffff;
+  --MainBG: #fafafa;
+  --AsignBG: #d9d9d9;
+  --SourceBG: #e9d7d7;
+  --SpaceBG: linear-gradient(203.53deg, rgb(41, 39, 39) 9.19%, #2e202e 85.54%);
+  --SpaceTrBG: linear-gradient(
+    203.53deg,
+    rgba(41, 39, 39, 0.3) 5%,
+    #2e202e 85.54%
+  );
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+#root {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  height: 100%;
+  background: var(--MainBG);
+  font: $p;
+}
+
+.App {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+  width: 100%;
+  min-height: 640px;
+}
+
+main {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  height: calc(100% - 56px);
+  margin-top: 56px;
+  background: var(--MainBG);
+
+  @media (max-width: 800px) {
+    height: 75%;
+    margin-top: 0;
+  }
+}
+
+.title {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 95%;
+  height: 10%;
+  margin-left: calc(5% / 2);
+  align-items: flex-end;
+
+  @media (max-width: 800px) {
+    width: 90%;
+    height: 8%;
+    justify-content: center;
+    align-items: flex-end;
+  }
+}
+
+.title > h1 {
+  text-indent: 5%;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+
+  font: $h2;
+  color: $dark-main;
+
+  @media (max-width: 800px) {
+    text-indent: 5%;
+  }
+}
+
+.astro-section {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  height: 90%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.map-wrapper {
+  display: flex;
+  width: 50%;
+  height: 90%;
+  background-image: var(--SpaceTrBG), url(/resources/pictures/starsBG.png);
+  align-self: center;
+  position: relative;
+  border: 1px solid var(--SvgTrColor);
+  border-radius: 15px;
+  overflow: hidden;
+
+  box-shadow: $shadow-header;
+
+  @media (max-width: 800px) {
+    width: 90%;
+    height: 100%;
+  }
+}
+
+.earth {
+  min-width: 100px;
+  height: 100px;
+  background: url(/resources/icons/earth.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.arc {
+  background: transparent;
+  width: 200px;
+  height: 200px;
+  border: 1px solid white;
+  border-radius: 50%;
+  top: -50px;
+  left: -50px;
+}
+
+.asteroid {
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  background: center / contain no-repeat;
+  background-image: url(/resources/icons/asteroid.svg);
+  position: absolute;
+  rotate: 90deg;
+  border: none;
+  z-index: 1;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.asteroid:hover {
+  transform: scale(1.2);
+}
+
+.margin-wrapper {
+  height: auto;
+  width: 100%;
+  margin: 10%;
+  position: relative;
+  transform: scale(1.2);
+
+  @media (max-width: 800px) {
+    margin: 3%;
+    transform: none;
+  }
+}
+
+.margin-wrapper > * {
+  position: absolute;
+}
+
+.info-section {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 40%;
+  height: 90%;
+  justify-content: space-between;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
+}
+
+.asteroid-info {
+  width: 100%;
+  height: 85%;
+  background: var(--WhiteBG);
+  padding: 5%;
+  border: 1px solid var(--SvgTrColor);
+  border-radius: 15px;
+
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  font-size: 1.2em;
+  line-height: 1.5;
+
+  box-shadow: $shadow-header;
+}
+
+.asteroid-info::-webkit-scrollbar {
+  display: none;
+}
+
+.info-block {
+  width: 100%;
+  margin-bottom: 5%;
+
+  @media (max-width: 800px) {
+    display: flex;
+    margin: 0 0 1% 1%;
+    align-items: center;
+  }
+}
+
+.title-block {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  margin-bottom: 3%;
+  align-items: center;
+  color: #292929;
+}
+
+.name-icon {
+  margin-right: 5%;
+  width: 2rem;
+  height: 2rem;
+  background: center / contain no-repeat;
+
+  @media (max-width: 800px) {
+    width: 1.3em;
+    height: 1.3em;
+  }
+}
+
+#name {
+  background-image: url(/resources/icons/black-icons/name.svg);
+}
+#diameter {
+  background-image: url(/resources/icons/black-icons/diameter.svg);
+}
+#close-a-date {
+  background-image: url(/resources/icons/black-icons/close-a-date.svg);
+}
+#velocity {
+  background-image: url(/resources/icons/black-icons/velocity.svg);
+}
+#velocity {
+  background-image: url(/resources/icons/black-icons/velocity.svg);
+}
+#hazardous {
+  background-image: url(/resources/icons/black-icons/hazardous.svg);
+}
+
+nav {
+  display: none;
+
+  @media (max-width: 800px) {
+    display: flex;
+    width: 100%;
+    max-height: 80px;
+    margin-top: 56px;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    padding: 3%;
+  }
+}
+
+footer {
+  display: none;
+
+  @media (max-width: 800px) {
+    display: flex;
+    flex-flow: row nowrap;
+    flex: 1 0 auto;
+    height: 5%;
+    background: var(--WhiteBG);
+    padding: 1% 0 0 5%;
+    align-items: center;
+    color: var(--SvgColor);
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+}
+
+.modal {
+  display: none;
+
+  @media (max-width: 800px) {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 95%;
+    background: rgba(255, 255, 255, 0.3);
+    left: 2.5%;
+    bottom: 2%;
+    padding: 3%;
+    align-self: end;
+    position: absolute;
+    border-radius: 10px;
+    color: var(--WhiteBG);
+    z-index: 1;
+  }
+}
+
+@media (max-width: 800px) {
+  .NavButton {
+    display: flex;
+    width: 25%;
+    height: 50px;
+    background: var(--SpaceBG);
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--SvgColor);
+    border-radius: 15px;
+    cursor: pointer;
+  }
+
+  .NavButton > * {
+    color: var(--AsignBG);
+    font: $p;
+  }
+
+  .NavButton:first-child {
+    margin-right: 5%;
+  }
+
+  #name {
+    background-image: url(/resources/icons/white-icons/name.svg);
+  }
+  #diameter {
+    background-image: url(/resources/icons/white-icons/diameter.svg);
+  }
+  #close-a-date {
+    background-image: url(/resources/icons/white-icons/close-a-date.svg);
+  }
+  #velocity {
+    background-image: url(/resources/icons/white-icons/velocity.svg);
+  }
+  #velocity {
+    background-image: url(/resources/icons/white-icons/velocity.svg);
+  }
+  #hazardous {
+    background-image: url(/resources/icons/white-icons/hazardous.svg);
+  }
+
+  .info-block h2 {
+    font-size: 1em;
+    margin-right: 1%;
+  }
+
+  .calendar {
+    width: 1.3em;
+    height: 1.3em;
+    background: center / contain no-repeat url(/resources/icons/calendar.svg);
+    margin: 0 5% 0 3%;
+  }
+}

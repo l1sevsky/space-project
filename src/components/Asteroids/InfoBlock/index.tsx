@@ -1,19 +1,19 @@
-import React from 'react';
+import React from "react";
 type TProps = {
-    textTitle: string,
-    id: string,
-} & React.PropsWithChildren
+  textTitle: string;
+  id: string;
+} & React.PropsWithChildren;
 
-const InfoBlock = ({children, textTitle, id}: TProps) => {
-    return (
-        <div className="info-block">
-            <div className="title-block">
-                <div className="name-icon" id={id}></div>
-                <h2>{textTitle}</h2>
-            </div>
-            {children}
-        </div>
-    );
-}
+const InfoBlock = ({ children, textTitle, id }: TProps) => {
+  return (
+    <div className="info-block">
+      <div className="title-block">
+        <div className="name-icon" id={id}></div>
+        <h2>{textTitle}</h2>
+      </div>
+      {children}
+    </div>
+  );
+};
 
 export default InfoBlock;

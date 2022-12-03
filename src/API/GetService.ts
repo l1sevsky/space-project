@@ -8,7 +8,9 @@ export default class GetService {
         const keyAPI = 'YkdcoTOX3Z8lkaQ5hQvXZqsZSH5xdQMBdpp7JRzd'
 
         let date = (new Date()).toISOString().slice(0, 10)
-        dateCallback(date)
+        let dateArray = new Date().toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' }).split(" ")
+        dateArray = [dateArray[1].slice(0, -1), dateArray[0].toUpperCase().slice(0, 3), dateArray[2]]
+        dateCallback(dateArray.join(' '))
 
         const response: TResponseData = await axios.get(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${date}&end_date=${date}&api_key=${keyAPI}`)
         callback(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${date}&end_date=${date}&api_key=${keyAPI}`)

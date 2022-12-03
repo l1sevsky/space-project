@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 
 type Tprops = {
-    date: string,
-}
+  date: string;
+};
 
-const Footer = ({date}: Tprops) => {
-    return (
-        <footer>
-            <div className="calendar"></div>
-            <p>INFORMATION UPDATED : {date}</p>
-        </footer>
-    );
-}
+const Footer = ({ date }: Tprops) => {
+  return (
+    <footer>
+      <div className="calendar"></div>
+      <p>INFORMATION UPDATED : {date}</p>
+    </footer>
+  );
+};
 
 export default Footer;
